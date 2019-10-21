@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>REGISTER</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -10,8 +10,38 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
+  <% include partials/_nav %>
   <body>
-    <h1>Register</h1>
+
+    <main style="register-container">
+      <h3>Create Account</h3>
+      <form action="/register" method="POST">
+      <div class="register-input">
+        <label for="name">Full Name:</label>
+        <input class="register" type="name" name="name">
+
+        <label for="register">E-mail:</label>
+        <input class="register" type="email" name="email">
+
+        <label for="register">Password:</label>
+        <input class="register" type="password" name="password">
+
+        <label for="phone">Phone Number:</label>
+        <input class="register" type="phone" name="phone">
+
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+      </form>
+    </main>
+
+
+    <footer>
+      <h4 class="info-title">CONTACT US</h4>
+      <div class="info">
+        <p>PHONE</p>
+        <p>ADDRESS</p>
+        <p>HOURS</p>
+        <p>EMAIL</p>
+      </div>
+    </footer>
   </body>
-</html>

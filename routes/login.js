@@ -7,6 +7,10 @@ module.exports = (db) => {
   .then(data => data.rows)
     res.render("login")
   });
+
+  router.post("/", (req, res) => {
+    res.render("login");
+    console.log('fwwnvivnwi')
+    });
   return router;
 };
-
