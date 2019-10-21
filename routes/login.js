@@ -4,8 +4,6 @@ const cookieSession = require('cookie-session');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-  db.query(`SELECT name FROM users;`)
-  .then(data => data.rows)
     res.render("login")
   });
   router.post("/", (req, res) => {
@@ -15,12 +13,12 @@ module.exports = (db) => {
       let templateVars;
       if(user && user.password === req.body.password) {
         templateVars = { email: req.body.email, password: req.body.password };
-        res.redirect("/", templateVars);
+        res.redirect("/");
       } else {
         res.send("Wrong password or email")
       }
     })
-    res.render("/");
+    //res.render("/");
     });
   return router;
 };
