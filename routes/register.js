@@ -6,7 +6,11 @@ module.exports = (db) => {
     res.render("register")
       });
 
-  router.post("/register", (req, res) => {
+  router.post("/", (req, res) => {
+    console.log(req.body)
+    db.query(`INSERT into USERS (name, email, phone, password)
+    VAlUES ($1, $2, $3, $4)`, [req.body.name, req.body.email, req.body.phone, req.body.password])
+    .then(data => data.rows[0])
     res.redirect("/")
       });
   return router;
