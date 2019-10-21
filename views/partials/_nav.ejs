@@ -7,6 +7,16 @@
       <a href="http://localhost:8080/about_us"class="nav-link">ABOUT US</a>
     </span>
   </div>
+   <% if (user) {%>
+    <div class="nav-right"></div>
+      <form class="user-email" method="POST" action="/logout">
+        <a>Logged in as <%=user.email%></a>
+        <button type="submit" class="logout-button">Logout</button>
+      </form>
+      <a href="http://localhost:8080/menu"class="cart">CART</a>
+    </div>
+  <%} else {%>
+
   <div class="nav-right">
     <form action="http://localhost:8080/login">
       <input type="submit" value="LOGIN" />
@@ -16,5 +26,6 @@
     </form>
     <a href="http://localhost:8080/menu"class="cart">CART</a>
   </div>
+  <%}%>
 
 </nav>
