@@ -20,7 +20,8 @@ CREATE TABLE foods(
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
-  photo_url VARCHAR(255) NOT NULL
+  photo_url VARCHAR(255) NOT NULL,
+  catagory VARCHAR(255) NOT NULL
 );
 
 
