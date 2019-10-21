@@ -12,15 +12,12 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users WHERE email = $1`, [req.body.email])
     .then(data => {
       const user = data.rows[0]
-      let templateVars;
       if(user && user.password === req.body.password) {
-        templateVars = { email: req.body.email, password: req.body.password };
-        res.redirect("/", templateVars);
+        res.redirect("/");
       } else {
         res.send("Wrong password or email")
       }
     })
-    res.render("/");
     });
   return router;
 };
