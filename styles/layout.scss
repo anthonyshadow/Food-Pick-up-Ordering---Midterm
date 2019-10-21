@@ -11,8 +11,9 @@ body {
 nav {
   background-color: #026670;
   width: 100%;
-  position: fixed;
+  position: fixed top;
   display: flex;
+  height: 125px;
 }
 
 .nav-links a {
@@ -29,7 +30,7 @@ nav {
 }
 
 .banner {
-  height: 500px;
+  height: 375px;
   display: flex;
 }
 
