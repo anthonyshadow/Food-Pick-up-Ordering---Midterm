@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>LOGIN</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -10,8 +10,31 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
+  <% include partials/_nav %>
   <body>
-    <h1>Login</h1>
+    <main class="login-form">
+      <h3>Login</h3>
+      <form action="/login" method="POST">
+      <div class="info-input">
+        <label for="login">E-mail:</label>
+        <input class="email-input" type="email" name="email">
+
+        <label for="login">password:</label>
+        <input class="login-input" type="password" name="password">
+
+        <button type="submit" class="sign-in-button">Sign In</button>
+      </div>
+      </form>
+    </main>
+
+    <footer>
+        <h4 class="info-title">CONTACT US</h4>
+        <div class="info">
+          <p>PHONE</p>
+          <p>ADDRESS</p>
+          <p>HOURS</p>
+          <p>EMAIL</p>
+        </div>
+      </footer>
   </body>
 </html>
