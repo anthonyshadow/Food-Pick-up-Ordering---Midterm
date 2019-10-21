@@ -1,0 +1,76 @@
+!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <% include partials/_nav %>
+  <body>
+    <section class="menu-container">
+      <h2 class="menu-title">MENU</h2>
+      <div class="menu-info">
+        <span>ITEM</span>
+        <span>$$</span>
+        <span>QTY</span>
+      </div>
+      <div class="food-type">
+        <h3>MAIN</h3>
+        <h3>SANDWHICHES</h3>
+        <h3>BURGERS</h3>
+      </div>
+
+    </section>
+
+    <section class="cart-container">
+
+      <div class="order-info">
+        <span>ITEM</span>
+        <span>QTY</span>
+        <span>COST</span>
+      </div>
+
+      <article class="new-order">
+        (AJAX NEW SELECTED ORDER)
+      </article>
+
+      <div class="total-box">
+
+        <div class="sub-total">
+          <span>sub-total</span>
+          <span>function cost of all ordered items</span>
+        </div>
+
+        <div class="taxes">
+          <span>TAXES</span>
+          <div class="GST">
+            <span>GST</span>
+            <span>function sub-total * GST</span>
+          </div>
+          <div class="PST">
+            <span>PST</span>
+            <span>function sub-total * PST</span>
+          </div>
+        </div>
+
+        <div class="total">
+          <span>TOTAL</span>
+          <span>function cost of subtotal + GST + PST</span>
+        </div>
+
+      </div>
+
+      <div class="checkout-button">
+        <form action="http://localhost:8080/:orderID/order-checkout">
+          <input type="submit" value="REGISTER" />
+        </form>
+      </div>
+
+
+    </section>
+  </body>
