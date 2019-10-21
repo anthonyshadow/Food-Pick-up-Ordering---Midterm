@@ -1,9 +1,80 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #EDEAE5;
 
   h1 {
     color: #244751;
   }
+}
+
+nav {
+  background-color: #026670;
+  width: 100%;
+  position: fixed;
+  display: flex;
+}
+
+.nav-links a {
+  padding: 20px;
+}
+
+.nav-right {
+  margin-left: auto;
+  padding-right: 25px;
+}
+
+.nav-left {
+  margin: 25px;
+}
+
+.banner {
+  height: 500px;
+  display: flex;
+}
+
+header {
+  form {
+    margin: auto;
+  }
+}
+
+.container {
+  height: 300px;
+}
+
+.title {
+  text-align: center;
+}
+
+.image-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+.box1 {
+  border: solid;
+}
+
+.box2 {
+  border: solid;
+}
+
+.box3{
+  border: solid;
+}
+
+footer {
+  width: 100%;
+  background: #026670;
+  padding: 25px;
+}
+.info-title {
+  text-align: center;
+}
+
+footer .info {
+  display: flex;
+  justify-content: space-around;
 }
