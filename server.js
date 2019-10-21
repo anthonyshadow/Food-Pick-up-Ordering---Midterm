@@ -41,13 +41,8 @@ const loginRoutes = require("./routes/login")
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-<<<<<<< HEAD
-app.use("/login", loginRoutes(db));
-
-=======
 app.use("/register", registerRoutes(db));
 app.use("/login", loginRoutes(db));
->>>>>>> 096c98b12b7202257f98829fea6cb517196926b6
 // Note: mount other resources here, using the same pattern above
 
 
