@@ -3,8 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-  res.render("login")
-  });
+    res.render("about_us")
+      });
   return router;
-};
-
+}
