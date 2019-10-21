@@ -7,7 +7,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
   let templateVars = {}
   templateVars.user = req.session.user_id ? req.session.user_id : undefined;
-  res.render("menu")
+  res.render("menu", templateVars)
   });
   return router;
 };
