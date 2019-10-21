@@ -3,7 +3,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-  res.render("login")
+  db.query(`SELECT name FROM users;`)
+  .then(data => data.rows)
+    res.render("login")
   });
   return router;
 }
