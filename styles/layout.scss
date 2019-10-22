@@ -16,17 +16,31 @@ nav {
   height: 125px;
 }
 
-.nav-links a {
-  padding: 20px;
+nav {
+  form{
+    margin-right: 10px;
+  }
+}
+
+.nav-link {
+  margin: 10px;
+
 }
 
 .nav-right {
+  justify-content: center;
+  display: flex;
   margin-left: auto;
   padding-right: 25px;
+  /* margin-top: 25px; */
+  align-items: center;
 }
 
 .nav-left {
-  margin: 25px;
+  // margin: 25px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .banner {
@@ -78,4 +92,12 @@ footer {
 footer .info {
   display: flex;
   justify-content: space-around;
+}
+
+.user-email {
+  padding: 50px 20px;
+}
+
+.cart {
+  padding: 50px 10px;
 }
