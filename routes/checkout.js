@@ -10,7 +10,8 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
       });
   router.post("/", (req, res) => {
-    res.render('index', send_smsRoutes)
+    send_smsRoutes()
+    res.redirect('/')
   })
   return router;
 }
