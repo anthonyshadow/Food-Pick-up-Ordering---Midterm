@@ -7,7 +7,34 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
   let templateVars = {}
   templateVars.user = req.session.user_id ? req.session.user_id : undefined;
-  res.render("menu", templateVars)
+
+  db.query(`SELECT * FROM foods;`)
+  .then(foodData => {
+    const foods = foodData.rows;
+    const params = { foods }
+
+    const createMenu = foodsArr => {
+      const categoriesSet = new Set();
+      const menu = {};
+      for (let meal of foodsArr) {
+        categoriesSet.add(meal.catagory)
+      }
+      const categories = Array.from(categoriesSet);
+      for (let category of categories) {
+
+        // adding to the food object
+        menu[category] = foodsArr.filter(meal => meal.catagory === category);
+      }
+      return menu;
+    }
+    templateVars.menu = createMenu(params.foods)
+    res.render("menu", templateVars)
+   console.log(createMenu(params.foods));
+
+  })
+  .catch(err => {
+    res.status(500)
+    });
   });
   return router;
 };
