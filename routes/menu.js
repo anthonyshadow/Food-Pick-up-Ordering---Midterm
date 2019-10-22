@@ -29,7 +29,6 @@ module.exports = (db) => {
     }
     templateVars.menu = createMenu(params.foods)
     res.render("menu", templateVars)
-   console.log(createMenu(params.foods));
 
   })
   .catch(err => {
