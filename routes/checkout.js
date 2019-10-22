@@ -26,7 +26,11 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {
-    send_smsRoutes()
+    send_smsRoutes.sendSMS({
+      body: 'Your order is pending!',
+      from: '+12085476957',
+      to: '+16473955386'
+    })
     res.redirect('/')
   })
   return router;
