@@ -11,7 +11,6 @@ const cookieSession = require('cookie-session');
 const app = express();
 
 module.exports = (db) => {
-  console.log(db)
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {

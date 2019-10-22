@@ -44,6 +44,7 @@ app.use(cookieSession({
 const usersRoutes = require("./routes/users");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 const menuRoutes = require("./routes/menu");
 const restaurantRoutes = require("./routes/restaurant");
 const about_usRoutes = require("./routes/about_us");
@@ -52,6 +53,7 @@ const about_usRoutes = require("./routes/about_us");
 app.use("/api/users", usersRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
 app.use("/menu", menuRoutes(db));
 app.use("/restaurant", restaurantRoutes(db));
 app.use("/about_us", about_usRoutes(db));
@@ -67,14 +69,6 @@ app.get("/", (req, res) => {
   res.render("index", templateVars);
 });
 
-app.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect("/");
-});
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
-
-// login

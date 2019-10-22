@@ -17,7 +17,6 @@ module.exports = (db) => {
     .then(data => {
       const user = data.rows[0]
       if(user && user.password === req.body.password) {
-        templateVars = { email: req.body.email, password: req.body.password };
         req.session.user_id = user;
         res.redirect("/");
       } else {
