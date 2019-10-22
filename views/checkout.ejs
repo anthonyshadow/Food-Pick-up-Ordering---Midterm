@@ -13,32 +13,20 @@
   </head>
   <% include partials/_nav %>
   <body>
-    Is this your order?
-    <header class="banner">
-      <form action="http://localhost:8080/menu">
-        <input type="submit" value="NO, GO BACK!"/>
-      </form>
+
+    <section class="checkout-container">
+      <h2>Order Confirmation</h2>
+      <article class="cart-order">
+        <% for (let cart of order) {%>
+          <div class="food-ordered">
+            <%= cart.name %>
+          </div>
+        <%}%>
+      </article>
       <form action="/checkout" method="POST">
+        <input type="text" name="comment">
         <input type="submit" value="YES"/>
       </form>
-    </header>
-
-    <section class="container">
-      <h3 class="title">WHY USE OUR ONLINE PICKUP FEATURE</h3>
-      <div class="image-boxes">
-        <div class="box1">
-          <img>
-          <p>BOX 1</p>
-        </div>
-        <div class="box2">
-          <img>
-          <p>BOX 2</p>
-        </div>
-        <div class="box3">
-          <img>
-          <p>BOX 3</p>
-        </div>
-      </div>
     </section>
 
     <footer>
