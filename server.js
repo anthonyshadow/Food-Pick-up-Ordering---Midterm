@@ -50,7 +50,6 @@ const menuRoutes = require("./routes/menu");
 const restaurantRoutes = require("./routes/restaurant");
 const about_usRoutes = require("./routes/about_us");
 const checkoutRoutes = require("./routes/checkout");
-const send_smsRoutes = require("./routes/send_sms");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
