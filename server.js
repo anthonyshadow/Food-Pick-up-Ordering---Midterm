@@ -32,6 +32,13 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+
+app.use(cookieSession({
+  name: 'session',
+  keys:["cowboys"],
+  maxAge: 24 * 60 * 60 * 1000
+}));
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
@@ -55,9 +62,15 @@ app.use("/about_us", about_usRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVars = {}
+  templateVars.user = req.session.user_id ? req.session.user_id : undefined;
+  res.render("index", templateVars);
 });
 
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
