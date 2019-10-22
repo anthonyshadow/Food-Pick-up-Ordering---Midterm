@@ -11,6 +11,7 @@ const cookieSession = require('cookie-session');
 const app        = express();
 const morgan     = require('morgan');
 
+
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -48,6 +49,8 @@ const logoutRoutes = require("./routes/logout");
 const menuRoutes = require("./routes/menu");
 const restaurantRoutes = require("./routes/restaurant");
 const about_usRoutes = require("./routes/about_us");
+const checkoutRoutes = require("./routes/checkout");
+const send_smsRoutes = require("./routes/send_sms");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -57,6 +60,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/menu", menuRoutes(db));
 app.use("/restaurant", restaurantRoutes(db));
 app.use("/about_us", about_usRoutes(db));
+app.use("/checkout", checkoutRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -72,3 +76,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
