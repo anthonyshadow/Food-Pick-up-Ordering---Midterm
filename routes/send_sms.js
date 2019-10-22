@@ -2,8 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const cookieSession = require('cookie-session');
 const app = express();
-const accountSid = 'AC6146c30ede9b143d4928d02fea9f61e5';
-const authToken = 'ef55dd2457fe3fab6ab8a1dc70dd6f63';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 
