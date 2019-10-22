@@ -36,12 +36,12 @@ $( document ).ready(function() {
 
 console.log(localStorage.getItem("cart-item"))
 
-$(() => {
-  $.ajax({
-    method: "POST",
-    url: "app.js",
-    data: "cart-item"
-  }).done((data) => {
-      $("<div>").text(data).appendTo($(".menu-info"));
-  });
-});
+// $(() => {
+//   $.ajax({
+//     method: "POST",
+//     url: "app.js",
+//     data: "cart-item"
+//   }).done((data) => {
+//       $("<div>").text(data).appendTo($(".menu-info"));
+//   });
+// });
