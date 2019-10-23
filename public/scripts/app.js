@@ -36,6 +36,8 @@ $( document ).ready(function() {
 
 console.log(localStorage.getItem("cart-item"))
 
+//i was trying to make it work with ajax 
+
 // $(() => {
 //   $.ajax({
 //     method: "POST",
