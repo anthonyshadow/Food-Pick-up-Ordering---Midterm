@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ORDERS</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+  </head>
+  <% include partials/_nav %>
+  <body>
+    <header class="banner">
+      <form method="POST" action="/orders">
+          <input type="submit" value="CLICK TO ORDER" />
+      </form>
+      <form method="GET" action="/orders">
+        <input type="submit" value="CLICK TO " />
+    </form>
+    </header>
+
+    <section class="container">
+      <h3 class="title">YOUR ORDERS</h3>
+      <% for (let statusOrder of order) {%>
+      <div>
+          YOURS <%=statusOrder.total_price%>
+      </div>
+      <% } %>
+    </section>
+
+    <footer>
+      <h4 class="info-title">CONTACT US</h4>
+      <div class="info">
+        <p>PHONE</p>
+        <p>ADDRESS</p>
+        <p>HOURS</p>
+        <p>EMAIL</p>
+      </div>
+    </footer>
+
+
+  </body>
+</html>

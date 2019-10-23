@@ -13,6 +13,12 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    let templateVars = {}
+    templateVars.user = req.session.user_id ? req.session.user_id : undefined;
+    db.query(`
+    UPDATE orders
+    SET completed = true
+    WHERE user_id = $1`, [req.session.user_id.id]);
     send_smsRoutes.sendSMS({
       body: 'Your order is complete!',
       from: '+12085476957',
@@ -20,7 +26,6 @@ module.exports = (db) => {
     })
     res.render('restaurant', templateVars)
   })
-
   return router;
 };
 

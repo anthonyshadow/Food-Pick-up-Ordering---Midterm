@@ -26,12 +26,16 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {
+    db.query(`
+    UPDATE orders
+    SET accepted = true
+    WHERE user_id = $1`, [req.session.user_id.id]);
     send_smsRoutes.sendSMS({
-      body: 'Your order is pending!',
+      body: 'Your order is being made, it will be ready in about 20-30 minutes!',
       from: '+12085476957',
       to: '+16473955386'
-    })
+    });
     res.redirect('/')
-  })
+  });
   return router;
 }
