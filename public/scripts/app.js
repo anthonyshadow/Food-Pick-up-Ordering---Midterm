@@ -169,12 +169,7 @@ $(document).ready(function(){
     for (let i=0; i < cartItems.length; i++){
       let foodPrice = Number(cartItems[i].foodPrice)
       sum += foodPrice
-          // var foodPrice = localStorage.key(i);
-          // var val = localStorage.getItem(foodPrice);
-          // var valu = val.split("*");
-          // alert (valu[0]); //alerts twice 130 and 160
-          // sum += parseInt(valu[0]); //also didn't work
-          // alert (sum);
+
       }
       console.log(sum)
   }
