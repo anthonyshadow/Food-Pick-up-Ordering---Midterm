@@ -22,7 +22,6 @@ module.exports = (db) => {
         templateVars.order = order
       })
 
-      console.log("Hello", templateVars)
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {

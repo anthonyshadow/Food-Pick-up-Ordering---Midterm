@@ -9,38 +9,50 @@
 //   });;
 // });
 
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/foods"
-  }).done((data) => {
-    for(food of data.foods) {
-      $("<div>").text(food.name).appendTo($(".menu-info"));
-      $("<div>").text(food.price).appendTo($(".menu-info"));
-    }
-  });
-});
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/foods"
+//   }).done((data) => {
+//     for(food of data.foods) {
+//       $("<div>").text(food.name).appendTo($(".menu-info"));
+//       $("<div>").text(food.price).appendTo($(".menu-info"));
+//     }
+//   });
+// });
+
 
 
 $( document ).ready(function() {
   let $button = $('.add-to-cart');
   $button.on("click", function(){
-    let test = $(this)
-    // alert("hello")
-    let $cartItem = $(this).parent().text()
-    // $('.card-body').text();
-    // console.log('cart item',$cartItem)
-    localStorage.setItem("cart-item", $cartItem)
+    let foodName = $(this).closest(".card").find('.food-name').text()
+    let foodDescription = $(this).closest(".card").find('.food-description').text()
+    let foodPrice = $(this).closest(".card").find('.food-price').text()
+      let cartItem = {
+        foodName: foodName,
+        foodDescription: foodDescription,
+        foodPrice: foodPrice
+      }
+      let cartItems
+      if(localStorage["cart-item"] === undefined) {
+        cartItems = []
+      } else {
+        cartItems = JSON.parse(localStorage["cart-item"])
+      }
+      cartItems.push(cartItem)
+      localStorage.setItem("cart-item", JSON.stringify(cartItems))
   })
 });
 
-console.log(localStorage.getItem("cart-item"))
+
+
 
 //i was trying to make it work with ajax 
 
 // $(() => {
 //   $.ajax({
-//     method: "POST",
+//     method: "GET",
 //     url: "app.js",
 //     data: "cart-item"
 //   }).done((data) => {
