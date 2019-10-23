@@ -25,6 +25,11 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {
+    let { user_id, ordered_at, accepted, completed, total_price, customer_comment} = req.body
+
+    db.query(`INSERT into ORDERS (user_id, total_price)
+    VALUES ($1, $2)`, [user_id, total_price])
+
     db.query(`
     UPDATE orders
     SET accepted = true
