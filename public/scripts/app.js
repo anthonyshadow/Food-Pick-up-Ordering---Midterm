@@ -91,15 +91,6 @@ function displayCart(cartItems) {
   }
 }
 
-
-
-
-
-
-
-
-
-
 $( document ).ready(function() {
   let $button = $('.checkout');
   $button.on("click", function(){
@@ -134,6 +125,7 @@ $( document ).ready(function() {
 function displayOrder(cartItems) {
   $(".cart-item").remove()
   cartItems = JSON.parse(localStorage["cart-item"])
+
   for ( item of cartItems) {
     $(".food-ordered").append(createOrderElement(item))
   }

@@ -5,6 +5,7 @@ const app = express();
 const send_smsRoutes = require("./send_sms");
 
 
+// const cartItems = JSON.parse(localStorage["cart-item"])
 
 module.exports = (db) => {
   let templateVars = {}
@@ -25,10 +26,12 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {
-    let { user_id, ordered_at, accepted, completed, total_price, customer_comment} = req.body
+    let { user_id, ordered_at, accepted, completed, total_price, customer_comment, cartItem} = req.body
 
     db.query(`INSERT into ORDERS (user_id, total_price)
     VALUES ($1, $2)`, [user_id, total_price])
+
+    console.log(req.body)
 
     db.query(`
     UPDATE orders
