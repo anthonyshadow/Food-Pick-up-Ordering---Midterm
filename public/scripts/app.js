@@ -128,6 +128,8 @@ $( document ).ready(function() {
       displayCart()
   })
   displayOrder()
+
+
 });
 
 function displayOrder(cartItems) {
@@ -138,39 +140,49 @@ function displayOrder(cartItems) {
     $(".food-ordered").append(createOrderElement(item))
     // console.log(cartItems)
   }
+  $(".food-ordered").append(createTotalElement())
 }
 
 function createOrderElement(cartItem) {
   const $cartItem = `
   <article class="cart-item">
-      <tbody>
-          <tr>
-              <td data-th="Product">
-                  <div class="row">
-                      <div class="col-sm-10">
-                          <h4 class="nomargin">${cartItem.foodName}</h4>
-                          <p>${cartItem.foodDescription}</p>
-                      </div>
-                  </div>
-              </td>
-              <td data-th="Price">$${cartItem.foodPrice}</td>
-          </tr>
-      </tbody>
+  <tbody>
+  <tr>
+  <td data-th="Product">
+  <div class="row">
+  <div class="col-sm-10">
+  <h4 class="nomargin">${cartItem.foodName}</h4>
+  <p>${cartItem.foodDescription}</p>
+  </div>
+  </div>
+  </td>
+  <td data-th="Price">$${cartItem.foodPrice}</td>
+  </tr>
+  </tbody>
   </article>
-    `;
-    return $cartItem
+  `;
+  return $cartItem
 }
 
+function createTotalElement() {
+  const $totalPrice = `
+  <div>
+    <h3> total price $ ${totalPrice()} </h3>
+  </div>`
 
-$(document).ready(function(){
-  cartItems = JSON.parse(localStorage["cart-item"])
-  if(cartItems.length > 0){
-    let sum = 0;
-    for (let i=0; i < cartItems.length; i++){
-      let foodPrice = Number(cartItems[i].foodPrice)
-      sum += foodPrice
+  return $totalPrice
+}
 
-      }
-      console.log(sum)
+  function totalPrice() {
+    cartItems = JSON.parse(localStorage["cart-item"])
+    if(cartItems.length > 0){
+      let sum = 0;
+      for (let i=0; i < cartItems.length; i++){
+        let foodPrice = Number(cartItems[i].foodPrice)
+        sum += foodPrice
+        }
+        return sum
+    }
   }
-});
+
+
