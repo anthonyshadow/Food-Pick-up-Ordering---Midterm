@@ -91,3 +91,91 @@ function displayCart(cartItems) {
     // console.log(cartItems)
   }
 }
+
+
+
+
+
+
+
+
+
+
+$( document ).ready(function() {
+  let $button = $('.checkout');
+  $button.on("click", function(){
+    let foodId = $(this).closest(".card").data("food-id")
+    let foodImage = $(this).closest(".card").find('.food-image').text()
+    let foodName = $(this).closest(".card").find('.food-name').text()
+    let foodDescription = $(this).closest(".card").find('.food-description').text()
+    let foodPrice = $(this).closest(".card").find('.food-price').text()
+      let cartItem = {
+        foodId,
+        foodName,
+        foodDescription,
+        foodPrice,
+        foodImage
+      }
+      let cartItems
+      if(localStorage["cart-item"] === undefined) {
+        cartItems = []
+      } else {
+        cartItems = JSON.parse(localStorage["cart-item"])
+      }
+      if (cartItem.foodId) {
+      cartItems.push(cartItem) }
+      localStorage.setItem("cart-item", JSON.stringify(cartItems))
+      displayCart()
+  })
+  displayOrder()
+});
+
+function displayOrder(cartItems) {
+  $(".cart-item").remove()
+  cartItems = JSON.parse(localStorage["cart-item"])
+  console.log(cartItems)
+  for ( item of cartItems) {
+    $(".food-ordered").append(createOrderElement(item))
+    // console.log(cartItems)
+  }
+}
+
+function createOrderElement(cartItem) {
+  const $cartItem = `
+  <article class="cart-item">
+      <tbody>
+          <tr>
+              <td data-th="Product">
+                  <div class="row">
+                      <div class="col-sm-10">
+                          <h4 class="nomargin">${cartItem.foodName}</h4>
+                          <p>${cartItem.foodDescription}</p>
+                      </div>
+                  </div>
+              </td>
+              <td data-th="Price">$${cartItem.foodPrice}</td>
+          </tr>
+      </tbody>
+  </article>
+    `;
+    return $cartItem
+}
+
+
+$(document).ready(function(){
+  cartItems = JSON.parse(localStorage["cart-item"])
+  if(cartItems.length > 0){
+    let sum = 0;
+    for (let i=0; i < cartItems.length; i++){
+      let foodPrice = Number(cartItems[i].foodPrice)
+      sum += foodPrice
+          // var foodPrice = localStorage.key(i);
+          // var val = localStorage.getItem(foodPrice);
+          // var valu = val.split("*");
+          // alert (valu[0]); //alerts twice 130 and 160
+          // sum += parseInt(valu[0]); //also didn't work
+          // alert (sum);
+      }
+      console.log(sum)
+  }
+});
