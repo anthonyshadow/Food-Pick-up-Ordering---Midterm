@@ -14,9 +14,12 @@
   <% include partials/_nav %>
   <body>
     <header class="banner">
-      <form action="http://localhost:8080/menu">
+      <form action="/menu">
           <input type="submit" value="CLICK TO ORDER" />
       </form>
+      <form method="POST" action="/orders">
+        <input type="submit" value="CHECK YOUR ORDERS" />
+    </form>
     </header>
 
     <section class="container">

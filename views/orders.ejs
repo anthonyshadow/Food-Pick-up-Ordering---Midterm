@@ -14,22 +14,22 @@
   <% include partials/_nav %>
   <body>
     <header class="banner">
-      <form method="POST" action="/orders">
-          <input type="submit" value="CLICK TO ORDER" />
-      </form>
-      <form method="GET" action="/orders">
-        <input type="submit" value="CLICK TO " />
-    </form>
+      <section class="container">
+        <h3 class="title">YOUR ORDERS</h3>
+        <% for (let statusOrder of order) {%>
+          <div>
+            DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
+          </div>
+          <div>
+            IS YOUR ORDER COMPLETED? IT IS <%=statusOrder.completed%>
+          </div>
+          <div>
+            YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>$
+          </div>
+          <% } %>
+      </section>
     </header>
 
-    <section class="container">
-      <h3 class="title">YOUR ORDERS</h3>
-      <% for (let statusOrder of order) {%>
-      <div>
-          YOURS <%=statusOrder.total_price%>
-      </div>
-      <% } %>
-    </section>
 
     <footer>
       <h4 class="info-title">CONTACT US</h4>
