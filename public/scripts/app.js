@@ -20,3 +20,30 @@ $(() => {
     }
   });
 });
+
+
+$( document ).ready(function() {
+  let $button = $('.add-to-cart');
+  $button.on("click", function(){
+    let test = $(this)
+    // alert("hello")
+    let $cartItem = $(this).parent().text()
+    // $('.card-body').text();
+    // console.log('cart item',$cartItem)
+    localStorage.setItem("cart-item", $cartItem)
+  })
+});
+
+console.log(localStorage.getItem("cart-item"))
+
+//i was trying to make it work with ajax 
+
+// $(() => {
+//   $.ajax({
+//     method: "POST",
+//     url: "app.js",
+//     data: "cart-item"
+//   }).done((data) => {
+//       $("<div>").text(data).appendTo($(".menu-info"));
+//   });
+// });

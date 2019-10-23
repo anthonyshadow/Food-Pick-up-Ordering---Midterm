@@ -27,6 +27,7 @@ module.exports = (db) => {
       }
       return menu;
     }
+
     templateVars.menu = createMenu(params.foods)
     res.render("menu", templateVars)
 
