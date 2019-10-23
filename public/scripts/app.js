@@ -88,7 +88,6 @@ function displayCart(cartItems) {
   cartItems = JSON.parse(localStorage["cart-item"])
   for ( item of cartItems) {
     $("#cart").append(createCartElement(item))
-    // console.log(cartItems)
   }
 }
 
@@ -135,10 +134,8 @@ $( document ).ready(function() {
 function displayOrder(cartItems) {
   $(".cart-item").remove()
   cartItems = JSON.parse(localStorage["cart-item"])
-  console.log(cartItems)
   for ( item of cartItems) {
     $(".food-ordered").append(createOrderElement(item))
-    // console.log(cartItems)
   }
   $(".food-ordered").append(createTotalElement())
 }
