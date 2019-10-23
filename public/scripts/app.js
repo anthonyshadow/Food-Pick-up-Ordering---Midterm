@@ -26,15 +26,17 @@
 $( document ).ready(function() {
   let $button = $('.add-to-cart');
   $button.on("click", function(){
+    let foodId = $(this).closest(".card").data("food-id")
     let foodImage = $(this).closest(".card").find('.food-image').text()
     let foodName = $(this).closest(".card").find('.food-name').text()
     let foodDescription = $(this).closest(".card").find('.food-description').text()
     let foodPrice = $(this).closest(".card").find('.food-price').text()
       let cartItem = {
-        foodName: foodName,
-        foodDescription: foodDescription,
-        foodPrice: foodPrice,
-        foodImage: foodImage
+        foodId,
+        foodName,
+        foodDescription,
+        foodPrice,
+        foodImage
       }
       let cartItems
       if(localStorage["cart-item"] === undefined) {
@@ -44,9 +46,11 @@ $( document ).ready(function() {
       }
       cartItems.push(cartItem)
       localStorage.setItem("cart-item", JSON.stringify(cartItems))
-      addToCart(cartItem)
+      displayCart()
   })
+  displayCart()
 });
+
 
 
 function createCartElement(cartItem) {
@@ -79,6 +83,11 @@ function createCartElement(cartItem) {
   return $cartItem
 }
 
-function addToCart(cartItems) {
-  $("#cart").append(createCartElement(cartItems))
+function displayCart(cartItems) {
+  $(".cart-item").remove()
+  cartItems = JSON.parse(localStorage["cart-item"])
+  for ( item of cartItems) {
+    $("#cart").append(createCartElement(item))
+    // console.log(cartItems)
+  }
 }

@@ -22,7 +22,7 @@
         <section class=<%= `menu-${catagory}`%>>
         <h4><%= catagory %></h4>
         <% for (let food of menu[catagory]) { %>
-          <div class="card" style="width: 18rem;">
+          <div class="card" data-food-id= <%= `${food.id}` %> style="width: 18rem;">
               <img src="..." class="food-image" alt="...">
               <div class="card-body">
                 <h5 class="food-name"><%= food.name %></h5>
@@ -80,7 +80,7 @@
                         <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-                        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                        <td><a href="/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
                       </tr>
                     </tfoot>
                   </table>
