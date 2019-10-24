@@ -12,21 +12,24 @@
 
   </head>
   <% include partials/_nav %>
+
   <body>
     <header class="banner">
       <section class="container">
         <h3 class="title">YOUR ORDERS</h3>
-        <% for (let statusOrder of order) {%>
-          <div>
-            DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
-          </div>
-          <div>
-            IS YOUR ORDER COMPLETED? IT IS <%=statusOrder.completed%>
-          </div>
-          <div>
-            YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>$
-          </div>
+        <$ if(order) { %>
+          <% for (let statusOrder of order) {%>
+            <div>
+              DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
+            </div>
+            <div>
+              IS YOUR ORDER COMPLETED? IT IS <%=statusOrder.completed%>
+            </div>
+            <div>
+              YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>$
+            </div>
           <% } %>
+        <% } %>
       </section>
     </header>
 

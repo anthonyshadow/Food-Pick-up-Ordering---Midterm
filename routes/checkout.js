@@ -26,12 +26,12 @@ module.exports = (db) => {
     res.render("checkout", templateVars)
   });
   router.post("/", (req, res) => {
-    let { user_id, ordered_at, accepted, completed, total_price, customer_comment, cartItem} = req.body
+    // let { user_id, ordered_at, accepted, completed, total_price, customer_comment, cartItem} = req.body
 
-    db.query(`INSERT into ORDERS (user_id, total_price)
-    VALUES ($1, $2)`, [user_id, total_price])
+    // db.query(`INSERT into ORDERS (user_id, total_price)
+    // VALUES ($1, $2)`, [user_id, total_price])
 
-    console.log(req.body)
+    // console.log(req.body.cartItem) need to get this query working to get into the databse added jquery to checkout.ejs to access localstorage
 
     db.query(`
     UPDATE orders
