@@ -10,7 +10,7 @@ module.exports = (db) => {
     let templateVars = {}
     templateVars.user = req.session.user_id ? req.session.user_id : undefined;
     db.query(`
-    SELECT foods.id as foodId, orders.id as orderId, foods.name, orders.accepted, orders.completed, orders.total_price
+    SELECT foods.id as foodId, orders.id as orderId, foods.name, orders.accepted, orders.completed, orders.total_price, orders.customer_comment
     FROM food_orders
     JOIN orders ON orders.id = order_id
     JOIN foods ON foods.id = food_id
@@ -18,7 +18,6 @@ module.exports = (db) => {
     .then(data => {
       templateVars.order = data.rows
     res.render("restaurant", templateVars)
-    //res.json(data.rows)
     });
 
   });
@@ -28,7 +27,7 @@ module.exports = (db) => {
     templateVars.user = req.session.user_id ? req.session.user_id : undefined;
     db.query(`
     UPDATE orders
-    SET completed = true
+    SET completed = false
     WHERE user_id = $1
     AND orders.id = $2`, [req.session.user_id.id, req.body.order_id]);
     send_smsRoutes.sendSMS({
