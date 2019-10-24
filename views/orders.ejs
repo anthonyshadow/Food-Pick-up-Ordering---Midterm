@@ -17,9 +17,10 @@
   <body>
     <header class="banner">
       <section class="container">
-        <h3 class="title">YOUR ORDERS</h3>
+        <h2 class="title">YOUR ORDERS</h2>
         <% if(order) { %>
           <% for (let statusOrder of order) {%>
+            <h4 class="title">ORDER NUMBER <%=statusOrder.orderid%></h4>
             <div>
               DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
             </div>
@@ -30,7 +31,7 @@
               YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>
             </div>
             <div>
-                YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.name%>
+                THE FOOD YOU ORDERED: <%=statusOrder.name%>
               </div>
           <% } %>
         <% } %>
