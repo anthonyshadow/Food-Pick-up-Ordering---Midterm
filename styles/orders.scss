@@ -1,9 +1,13 @@
 .orders-container {
-  border: solid;
+  border: solid 10px #026670;
   margin-top: 187px;
-  background-color: white;
+  background-color:white;
   margin-left: auto;
   margin-right: auto;
   height: 60%;
+  overflow: auto;
 }
 
+.title {
+ border-bottom: solid gainsboro;
+}
