@@ -1,0 +1,55 @@
+.menu-main {
+  margin-left: 20px;
+}
+
+// .menu-sandwich {
+//   display: flex;
+// }
+
+// .menu-burger {
+//   display: flex;
+// }
+
+.page-container {
+  margin-top: 125px;
+  display: flex;
+}
+
+.menu-title {
+  text-align: center;
+}
+
+.card {
+  margin-right: 25px;
+}
+
+h4 {
+  margin-right: 25px;
+}
+
+.menu-contaier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.menu-catagory-container {
+  display: flex;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.container {
+  overflow: auto;
+  height: 600px;
+  margin-top: 78px;
+  border: solid #026670 10px
+
+}
+
+.cart-item {
+  display: flex;
+}

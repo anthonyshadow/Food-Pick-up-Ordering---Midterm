@@ -47,22 +47,30 @@ $( document ).ready(function() {
       cartItems.push(cartItem)
       localStorage.setItem("cart-item", JSON.stringify(cartItems))
       displayCart()
+      $(".cart-total-price").html(createCartTotal())
   })
   displayCart()
+  $(".cart-total-price").html(createCartTotal())
 });
 
+$( document ).ready(function() {
+  $deleteButton = $(".btn.btn-danger.btn-sm")
+  $deleteButton.on("click", function(){
+    console.log($(this))
+    $(this).closest("tbody").remove()
+    // $(".cart-total-price").html(createCartTotal())
+  })
+})
 
 
 function createCartElement(cartItem) {
   const $cartItem = `
-  <article class="cart-item">
       <tbody>
           <tr>
               <td data-th="Product">
                   <div class="row">
-                      <div class="col-sm-2 hidden-xs"><img src="${cartItem.foodImage}" alt="..." class="img-responsive" /></div>
                       <div class="col-sm-10">
-                          <h4 class="nomargin">${cartItem.foodName}</h4>
+                          <h5 class="nomargin">${cartItem.foodName}</h5>
                           <p>${cartItem.foodDescription}</p>
                       </div>
                   </div>
@@ -71,25 +79,26 @@ function createCartElement(cartItem) {
               <td data-th="Quantity">
                   <input type="number" class="form-control text-center" value="1">
               </td>
-              <td data-th="Subtotal" class="text-center">1.99</td>
               <td class="actions" data-th="">
                   <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
                   <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
               </td>
           </tr>
       </tbody>
-    </article>
   `;
   return $cartItem
 }
 
 function displayCart(cartItems) {
-  $(".cart-item").remove()
+  $("tbody").remove()
   cartItems = JSON.parse(localStorage["cart-item"])
   for ( item of cartItems) {
     $("#cart").append(createCartElement(item))
   }
 }
+
+
+
 
 $( document ).ready(function() {
   let $button = $('.checkout');
@@ -150,7 +159,7 @@ function createOrderElement(cartItem) {
   </tbody>
   </article>
   `;
-  return $cartItem
+  return $cartItem;
 }
 
 function createTotalElement() {
@@ -159,7 +168,15 @@ function createTotalElement() {
     <h3> total price $ ${totalPrice()} </h3>
   </div>`
 
-  return $totalPrice
+  return $totalPrice;
+}
+
+function createCartTotal() {
+  const $totalCartPrice =
+  `
+  <strong>TOTAL $${totalPrice()}</strong>
+  `;
+  return $totalCartPrice;
 }
 
   function totalPrice() {

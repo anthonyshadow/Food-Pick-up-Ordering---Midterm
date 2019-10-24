@@ -11,9 +11,10 @@ body {
 .nav-container {
   background-color: #026670;
   width: 100%;
-  position: fixed top;
-  display: flex;
+  position: fixed;
   height: 125px;
+  z-index: 1000;
+  top: 0;
 }
 
 .nav-container {
@@ -29,6 +30,7 @@ body {
 }
 
 .nav-right {
+  // display: flex;
   justify-content: center;
   display: flex;
   margin-left: auto;
@@ -90,6 +92,7 @@ footer {
   width: 100%;
   background: #026670;
   padding: 25px;
+  bottom: 0;
 }
 .info-title {
   text-align: center;

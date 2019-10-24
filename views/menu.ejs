@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -16,24 +18,32 @@
   </head>
   <% include partials/_nav %>
   <body>
+
+  <section class="page-container">
+
     <container class="menu-container">
       <h3 class="menu-title">MENU</h3>
-      <% for (let catagory in menu) { %>
+
+      <container class="menu-catagory-container" >
+
+        <% for (let catagory in menu) { %>
         <section class=<%= `menu-${catagory}`%>>
-        <h4><%= catagory %></h4>
-        <% for (let food of menu[catagory]) { %>
-          <div class="card" data-food-id= <%= `${food.id}` %> style="width: 18rem;">
-              <img src="..." class="food-image" alt="...">
-              <div class="card-body">
-                <h5 class="food-name"><%= food.name %></h5>
-                <p class="food-description"><%= food.description %></p>
-                <p class="food-price"><%= food.price %></p>
-                <button type="submit"  class="add-to-cart btn btn-primary">Add to cart</button>
-              </div>
+      <h4><%= catagory %></h4>
+      <% for (let food of menu[catagory]) { %>
+        <div class="card" data-food-id= <%= `${food.id}` %> style="width: 18rem;">
+            <img src="..." class="food-image" alt="...">
+            <div class="card-body">
+              <h5 class="food-name"><%= food.name %></h5>
+              <p class="food-description"><%= food.description %></p>
+              <p class="food-price"><%= food.price %></p>
+              <button type="submit"  class="add-to-cart btn btn-primary">Add to cart</button>
             </div>
-            <% } %>
-          </section>
-            <% } %>
+          </div>
+          <% } %>
+        </section>
+          <% } %>
+
+    </container>
 
     </container>
 
@@ -43,11 +53,11 @@
             <table id="cart" class="table table-hover table-condensed">
                       <thead>
                       <tr>
-                        <th style="width:50%">Product</th>
-                        <th style="width:10%">Price</th>
-                        <th style="width:8%">Quantity</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
-                        <th style="width:10%"></th>
+                        <th style="width:56%">Product</th>
+                        <th style="width:16%">Price</th>
+                        <th style="width:14%">Quantity</th>
+                        <!-- <th style="width:22%" class="text-center"></th> -->
+                        <th style="width:14%"></th>
                       </tr>
                     </thead>
                     <!-- <tbody> -->
@@ -74,18 +84,23 @@
                     <!-- </tbody> -->
                     <tfoot>
                       <tr class="visible-xs">
-                        <td class="text-center"><strong>Total 1.99</strong></td>
+                        <td class="cart-total-price">
+
+                        </td>
+                        <!-- <td class="text-center"><strong>Total 1.99</strong></td> -->
                       </tr>
                       <tr>
                         <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                        <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                        <td class="hidden-xs text-center"><strong></strong></td>
                         <td><a href="/checkout" class="checkout btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
                       </tr>
                     </tfoot>
                   </table>
           </div>
     </section>
+
+  </section>
+
 
     <footer>
       <h4 class="info-title">CONTACT US</h4>
