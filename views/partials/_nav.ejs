@@ -11,7 +11,7 @@
     <div class="nav-right"></div>
       <form class="user-email" method="POST" action="/logout">
         <a>Logged in as <%=user.email%></a>
-        <button type="submit" class="logout-button">Logout</button>
+        <button type="submit" class="logout-button user-button">Logout</button>
       </form>
       <a href="http://localhost:8080/menu"class="cart">
         <img src="https://marketplace.canva.com/MAB3jQafwHM/1/thumbnail_large/canva-shopping-cart-with-bags-inside-icon--MAB3jQafwHM.png"></a>
@@ -20,10 +20,10 @@
 
   <div class="nav-right">
     <form action="http://localhost:8080/login">
-      <input type="submit" value="LOGIN" />
+      <input class="user-button" type="submit" value="LOGIN" />
     </form>
     <form action="http://localhost:8080/register">
-      <input type="submit" value="REGISTER" />
+      <input class="user-button" type="submit" value="REGISTER" />
     </form>
     <div>
       <a href="http://localhost:8080/menu"class="cart">
