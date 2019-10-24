@@ -39,7 +39,8 @@
       let cartItem = JSON.parse(localStorage.getItem("cart-item"));
       $('.checkout-form').submit(function(e) {
         e.preventDefault();
-          $.post('/checkout', {cartItem});
+          $.post('/checkout', {cartItem})
+          localStorage.clear();
       });
     </script>
   </body>
