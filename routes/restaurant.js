@@ -27,15 +27,18 @@ module.exports = (db) => {
     templateVars.user = req.session.user_id ? req.session.user_id : undefined;
     db.query(`
     UPDATE orders
-    SET completed = false
+    SET completed = true
     WHERE user_id = $1
-    AND orders.id = $2`, [req.session.user_id.id, req.body.order_id]);
-    send_smsRoutes.sendSMS({
-      body: 'Your order is complete!',
-      from: '+12085476957',
-      to: '+16473955386'
+    AND orders.id = $2`, [req.session.user_id.id, req.body.order_id])
+    .then(data => {
+      send_smsRoutes.sendSMS({
+        body: 'Your order is complete!',
+        from: '+12085476957',
+        to: '+16473955386'
+      })
+      res.redirect('restaurant');
+
     })
-    res.render('restaurant', templateVars)
   })
   return router;
 };
