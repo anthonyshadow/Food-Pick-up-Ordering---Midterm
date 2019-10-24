@@ -14,14 +14,15 @@
   <% include partials/_nav %>
 
 
-  <body class="body-rest"><% let completed = false %>
-    <% for (let statusOrder of order) {%>
-      <% if (statusOrder.completed === false && statusOrder.accepted === true) {%>
-            <div>
-                <span>FOOD <%=statusOrder.name%></span>
-            </div>
 
-    <container class="order-container">
+  <body class="body-rest">
+  <container class="order-container">
+      <% let completed = false %>
+      <% for (let statusOrder of order) {%>
+        <% if (statusOrder.completed === false && statusOrder.accepted === true) {%>
+              <div>
+                  <span>FOOD <%=statusOrder.name%></span>
+              </div>
       <div class="order-info">
         <div class="order-id">
         <span>ORDER ID <%=statusOrder.orderid%></span>
