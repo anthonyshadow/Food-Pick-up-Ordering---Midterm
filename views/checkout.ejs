@@ -37,10 +37,16 @@
     </footer>
     <script>
       let cartItem = JSON.parse(localStorage.getItem("cart-item"));
-      $('.checkout-form').submit(function(e) {
+      $('.checkout-form').on("submit", function(e) {
         e.preventDefault();
+
+        console.log("Submit Form")
           $.post('/checkout', {cartItem})
-          localStorage.clear();
+          .done(function(resp){
+
+            localStorage.clear();
+            window.location.href='/';
+          })
       });
     </script>
   </body>

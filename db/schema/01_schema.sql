@@ -28,9 +28,9 @@ CREATE TABLE foods(
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  ordered_at TIMESTAMP NOT NULL,
-  accepted BOOLEAN NOT NULL,
-  completed BOOLEAN NOT NULL,
+  ordered_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
+  accepted BOOLEAN NOT NULL DEFAULT false,
+  completed BOOLEAN NOT NULL DEFAULT false,
   total_price INTEGER NOT NULL,
   customer_comment VARCHAR(255)
 );
