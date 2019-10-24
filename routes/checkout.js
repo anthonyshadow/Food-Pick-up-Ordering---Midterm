@@ -31,7 +31,6 @@ module.exports = (db) => {
 
 
     db.query(`INSERT into ORDERS (user_id, total_price) VALUES ($1, $2)`, [user_id, total_price])
-
     db.query(`
     UPDATE orders
     SET accepted = true

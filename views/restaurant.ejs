@@ -35,13 +35,10 @@
         <div class=completed>
         <span>COMPLETED  <%=statusOrder.completed%></span>
         </div>
-        <div class=completed>
-            <span>CUSTOMER COMMENT <%=statusOrder.customer_comment%></span>
-        </div>
       </div>
       <article class="new-order">
         <form method="POST" action="/restaurant">
-
+          <%= JSON.stringify(statusOrder) %>
           <input type="hidden" name = 'order_id' value="<%= statusOrder.orderid %>">
           <button>COMPLETE</button>
         </form>
