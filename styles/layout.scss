@@ -8,7 +8,7 @@ body {
   }
 }
 
-nav {
+.nav-container {
   background-color: #026670;
   width: 100%;
   position: fixed top;
@@ -16,7 +16,7 @@ nav {
   height: 125px;
 }
 
-nav {
+.nav-container {
   form{
     margin-right: 10px;
   }
@@ -24,6 +24,7 @@ nav {
 
 .nav-link {
   margin: 10px;
+
 
 }
 
@@ -44,8 +45,12 @@ nav {
 }
 
 .banner {
-  height: 375px;
+  height: 650px;
   display: flex;
+  background-image: url(https://foodservice.potatorolls.com/wp-content/uploads/2017/08/mission-background-image.png);
+  background-size: 100% 100%;
+
+
 }
 
 header {
@@ -54,8 +59,8 @@ header {
   }
 }
 
-.container {
-  height: 300px;
+.container-how-to {
+  height: 400px;
 }
 
 .title {
@@ -69,15 +74,15 @@ header {
 }
 
 .box1 {
-  border: solid;
+
 }
 
 .box2 {
-  border: solid;
+
 }
 
 .box3{
-  border: solid;
+
 }
 
 footer {
@@ -100,4 +105,39 @@ footer .info {
 
 .cart {
   padding: 50px 10px;
+  margin-top: -29px;
+}
+
+.image-boxes {
+  img {
+    height: 175px;
+    width: auto;
+    border-radius: 50px;
+  }
+}
+
+.logo {
+  img{
+  height: 75px;
+  width: auto;
+  }
+}
+
+.cart{
+  img{
+    height: 75px;
+    width: auto;
+  }
+}
+
+.nav-container {
+  .nav-link:hover{
+    color: yellow;
+  }
+}
+
+.nav-container {
+  .nav-link {
+    color: yellow;
+  }
 }

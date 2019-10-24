@@ -1,7 +1,8 @@
-<nav>
+<nav class="nav-container">
 
   <div class="nav-left">
-    <a href="http://localhost:8080"class="logo">LOGO</span>
+     <a href="http://localhost:8080"class="logo">
+     <img src="https://seeklogo.com/images/F/food-chief-spoon-logo-778E6F7075-seeklogo.com.png"></a>
     <span class="nav-links">
       <a href="http://localhost:8080/menu"class="nav-link">MENU</a>
       <a href="http://localhost:8080/about_us"class="nav-link">ABOUT US</a>
@@ -13,7 +14,8 @@
         <a>Logged in as <%=user.email%></a>
         <button type="submit" class="logout-button">Logout</button>
       </form>
-      <a href="http://localhost:8080/menu"class="cart">CART</a>
+      <a href="http://localhost:8080/menu"class="cart">
+        <img src="https://marketplace.canva.com/MAB3jQafwHM/1/thumbnail_large/canva-shopping-cart-with-bags-inside-icon--MAB3jQafwHM.png"></a>
     </div>
   <%} else {%>
 
@@ -24,7 +26,10 @@
     <form action="http://localhost:8080/register">
       <input type="submit" value="REGISTER" />
     </form>
-    <a href="http://localhost:8080/menu"class="cart">CART</a>
+    <div>
+      <a href="http://localhost:8080/menu"class="cart">
+      <img src="https://marketplace.canva.com/MAB3jQafwHM/1/thumbnail_large/canva-shopping-cart-with-bags-inside-icon--MAB3jQafwHM.png"></a>
+      </div>
   </div>
   <%}%>
 
