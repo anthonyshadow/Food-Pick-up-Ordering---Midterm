@@ -13,9 +13,9 @@
   <% include partials/_nav %>
 
 
-  <body>
+  <body><% let completed = false %>
     <% for (let statusOrder of order) {%>
-    <% if (statusOrder.completed === true && statusOrder.accepted === true) {%>
+      <% if (statusOrder.completed === false && statusOrder.accepted === true) {%>
             <div>
                 <span>FOOD <%=statusOrder.name%></span>
             </div>
@@ -23,7 +23,7 @@
     <container class="order-container">
       <div class="order-info">
         <div>
-        <span>ORDER ID <%=statusOrder.id%></span>
+        <span>ORDER ID <%=statusOrder.orderid%></span>
         </div>
         <div>
             <span>TOTAL PRICE <%=statusOrder.total_price%></span>
@@ -37,12 +37,17 @@
       </div>
       <article class="new-order">
         <form method="POST" action="/restaurant">
+          <%= JSON.stringify(statusOrder) %>
+          <input type="hidden" name = 'order_id' value="<%= statusOrder.orderid %>">
           <button>COMPLETE</button>
         </form>
         <% } else { %>
+          <% completed = true %>
+          <% } %>
+        <% } %>
+        <% if (completed === true) { %>
           ITS ALL COMPLETED
-          <% } %>
-          <% } %>
+        <% } %>
       </article>
     </container>
 

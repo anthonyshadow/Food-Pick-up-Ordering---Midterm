@@ -8,4 +8,4 @@ module.exports = (db) => {
     res.render("about_us")
       });
   return router;
-}
+};

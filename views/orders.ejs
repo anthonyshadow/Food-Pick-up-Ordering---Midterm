@@ -9,6 +9,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/routes/order.js"></script>
 
   </head>
   <% include partials/_nav %>
@@ -17,7 +18,7 @@
     <header class="banner">
       <section class="container">
         <h3 class="title">YOUR ORDERS</h3>
-        <$ if(order) { %>
+        <% if(order) { %>
           <% for (let statusOrder of order) {%>
             <div>
               DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
@@ -26,8 +27,11 @@
               IS YOUR ORDER COMPLETED? IT IS <%=statusOrder.completed%>
             </div>
             <div>
-              YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>$
+              YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>
             </div>
+            <div>
+                YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.name%>
+              </div>
           <% } %>
         <% } %>
       </section>
