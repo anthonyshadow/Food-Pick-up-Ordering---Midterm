@@ -35,6 +35,7 @@ body {
   padding-right: 25px;
   /* margin-top: 25px; */
   align-items: center;
+  color: white;
 }
 
 .nav-left {
@@ -137,7 +138,8 @@ footer .info {
 }
 
 .nav-container {
-  .nav-link {
-    color: yellow;
+  .nav-link{
+    color: white;
+    text-decoration: none;
   }
 }

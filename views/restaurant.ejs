@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/restaurant.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -13,7 +14,7 @@
   <% include partials/_nav %>
 
 
-  <body><% let completed = false %>
+  <body class="body-rest"><% let completed = false %>
     <% for (let statusOrder of order) {%>
       <% if (statusOrder.completed === false && statusOrder.accepted === true) {%>
             <div>
@@ -22,16 +23,16 @@
 
     <container class="order-container">
       <div class="order-info">
-        <div>
+        <div class="order-id">
         <span>ORDER ID <%=statusOrder.orderid%></span>
         </div>
-        <div>
+        <div class="total-price">
             <span>TOTAL PRICE <%=statusOrder.total_price%></span>
         </div>
-        <div>
+        <div class="accepted">
             <span>ACCEPTED  <%=statusOrder.accepted%></span>
             </div>
-        <div>
+        <div class=completed>
         <span>COMPLETED  <%=statusOrder.completed%></span>
         </div>
       </div>
@@ -48,6 +49,20 @@
         <% if (completed === true) { %>
           ITS ALL COMPLETED
         <% } %>
+        <!-- <div class="order-info">
+          <div class="order-id">
+          <span>ORDER ID</span>
+          </div>
+          <div class="total-price">
+              <span>TOTAL PRICE</span>
+          </div>
+          <div class="accepted">
+              <span>ACCEPTED</span>
+              </div>
+          <div class=completed>
+          <span>COMPLETED</span>
+          </div> -->
+        </div>
       </article>
     </container>
 
