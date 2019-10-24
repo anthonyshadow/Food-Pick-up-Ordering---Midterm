@@ -73,6 +73,7 @@ app.use("/orders", ordersRoutes(db));
 app.get("/", (req, res) => {
   let templateVars = {}
   templateVars.user = req.session.user_id ? req.session.user_id : undefined;
+  console.log("rendering index")
   res.render("index", templateVars);
 });
 
