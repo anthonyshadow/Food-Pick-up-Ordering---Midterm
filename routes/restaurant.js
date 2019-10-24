@@ -8,8 +8,17 @@ const send_smsRoutes = require("./send_sms");
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let templateVars = {}
+    let userOrders = db.query(`
+    SELECT *
+    FROM food_orders
+    JOIN orders ON orders.id = order_id
+    WHERE user_id = $1`, [req.session.user_id.id])
     templateVars.user = req.session.user_id ? req.session.user_id : undefined;
-  res.render("restaurant", templateVars)
+    templateVars.order =
+    res.render("restaurant", templateVars)
+
+
+    console.log(Object.keys(userOrders))
   });
 
   router.post("/", (req, res) => {
@@ -17,7 +26,7 @@ module.exports = (db) => {
     templateVars.user = req.session.user_id ? req.session.user_id : undefined;
     db.query(`
     UPDATE orders
-    SET completed = true
+    SET completed = false
     WHERE user_id = $1`, [req.session.user_id.id]);
     send_smsRoutes.sendSMS({
       body: 'Your order is complete!',

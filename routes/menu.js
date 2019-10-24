@@ -7,7 +7,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
   let templateVars = {}
   templateVars.user = req.session.user_id ? req.session.user_id : undefined;
-
   db.query(`SELECT * FROM foods;`)
   .then(foodData => {
     const foods = foodData.rows;
@@ -27,11 +26,14 @@ module.exports = (db) => {
       }
       return menu;
     }
-
+    if (templateVars.user) {
     templateVars.menu = createMenu(params.foods)
     res.render("menu", templateVars)
-
+    } else {
+      res.render("login", templateVars)
+    }
   })
+
   .catch(err => {
     res.status(500)
     });

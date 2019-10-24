@@ -14,18 +14,35 @@
 
 
   <body>
+    <% for (let statusOrder of order) {%>
+    <% if (statusOrder.completed === true && statusOrder.accepted === true) {%>
+            <div>
+                <span>FOOD <%=statusOrder.name%></span>
+            </div>
+
     <container class="order-container">
       <div class="order-info">
-        <span>ORDER ID</span>
-        <span>ORDER DATE</span>
-        <span>COMPLETED</span>
+        <div>
+        <span>ORDER ID <%=statusOrder.id%></span>
+        </div>
+        <div>
+            <span>TOTAL PRICE <%=statusOrder.total_price%></span>
+        </div>
+        <div>
+            <span>ACCEPTED  <%=statusOrder.accepted%></span>
+            </div>
+        <div>
+        <span>COMPLETED  <%=statusOrder.completed%></span>
+        </div>
       </div>
       <article class="new-order">
-        <span>ORDER ID</span>
-        <span>ORDER DATE</span>
         <form method="POST" action="/restaurant">
           <button>COMPLETE</button>
         </form>
+        <% } else { %>
+          ITS ALL COMPLETED
+          <% } %>
+          <% } %>
       </article>
     </container>
 
