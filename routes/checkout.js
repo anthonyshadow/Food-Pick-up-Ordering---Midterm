@@ -31,9 +31,6 @@ module.exports = (db) => {
 
     console.log("req", req.body)
 
-<<<<<<< HEAD
-    db.query(`INSERT into ORDERS (user_id, total_price) VALUES ($1, $2)`, [user_id, total_price])
-=======
 
     // [ { foodId: '5',
     // foodName: 'Juicy Lucy',
@@ -60,7 +57,6 @@ module.exports = (db) => {
 
     console.log("total", totalPrice)
 
->>>>>>> features/insert
     db.query(`
     UPDATE orders
     SET accepted = true
