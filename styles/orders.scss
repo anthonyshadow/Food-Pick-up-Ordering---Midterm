@@ -4,10 +4,21 @@
   background-color:white;
   margin-left: auto;
   margin-right: auto;
-  height: 60%;
+  height: 500px;
   overflow: auto;
+  width: 40%;
+
 }
 
 .title {
  border-bottom: solid gainsboro;
+}
+
+.footer-orders{
+  width: 100%;
+  background: #026670;
+  padding: 25px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
 }
