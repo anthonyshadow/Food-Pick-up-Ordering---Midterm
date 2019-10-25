@@ -20,18 +20,18 @@
         <h2 class="title">YOUR ORDERS</h2>
         <% if(order) { %>
           <% for (let statusOrder of order) {%>
-            <h4 class="order-number">ORDER NUMBER <%=statusOrder.orderid%></h4>
+            <h3 class="order-number">ORDER NUMBER <%=statusOrder.orderid%></h3>
             <div>
-              DID THE RESTAURANT START TO MAKE YOUR FOOD? <%=statusOrder.accepted%>
+              <strong>IS YOUR ORDER IN PROGRESS?</strong> <%=statusOrder.accepted%>
             </div>
             <div>
-              IS YOUR ORDER COMPLETED? IT IS <%=statusOrder.completed%>
+              <strong>IS YOUR ORDER COMPLETED?</strong>  <%=statusOrder.completed%>
             </div>
             <div>
-              YOUR TOTAL PRICE OF THE ORDER IS <%=statusOrder.total_price%>
+              <strong>YOUR ORDER COST</strong> <%=statusOrder.total_price%>
             </div>
             <div>
-                THE FOOD YOU ORDERED: <%=statusOrder.name%>
+              <strong>THE FOOD YOU ORDERED:</strong> <%=statusOrder.name%>
               </div>
           <% } %>
         <% } %>
