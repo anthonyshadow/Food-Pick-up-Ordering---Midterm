@@ -16,13 +16,13 @@ module.exports = (db) => {
       const categoriesSet = new Set();
       const menu = {};
       for (let meal of foodsArr) {
-        categoriesSet.add(meal.catagory)
+        categoriesSet.add(meal.category)
       }
       const categories = Array.from(categoriesSet);
       for (let category of categories) {
 
         // adding to the food object
-        menu[category] = foodsArr.filter(meal => meal.catagory === category);
+        menu[category] = foodsArr.filter(meal => meal.category === category);
       }
       return menu;
     }

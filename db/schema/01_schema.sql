@@ -21,7 +21,7 @@ CREATE TABLE foods(
   description VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
-  catagory VARCHAR(255) NOT NULL
+  category VARCHAR(255) NOT NULL
 );
 
 

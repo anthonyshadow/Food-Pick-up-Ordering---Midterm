@@ -24,18 +24,18 @@
     <container class="menu-container">
       <h3 class="menu-title">MENU</h3>
 
-      <container class="menu-catagory-container" >
+      <container class="menu-category-container" >
 
-        <% for (let catagory in menu) { %>
-        <section class=<%= `menu-${catagory}`%>>
-      <h4><%= catagory %></h4>
-      <% for (let food of menu[catagory]) { %>
+        <% for (let category in menu) { %>
+        <section class=<%= `menu-${category}`%>>
+      <h4><%= category %></h4>
+      <% for (let food of menu[category]) { %>
         <div class="card" data-food-id= <%= `${food.id}` %> style="width: 18rem;">
             <img src="..." class="food-image" alt="...">
             <div class="card-body">
               <h5 class="food-name"><%= food.name %></h5>
               <p class="food-description"><%= food.description %></p>
-              <p class="food-price"><%= food.price %></p>
+              <p class="food-price"><%= food.price %>$</p>
               <button type="submit"  class="add-to-cart btn btn-primary">Add to cart</button>
             </div>
           </div>
