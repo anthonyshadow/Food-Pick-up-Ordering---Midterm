@@ -20,9 +20,9 @@
       <% let completed = false %>
       <% for (let statusOrder of order) {%>
         <% if (statusOrder.completed === false && statusOrder.accepted === true) {%>
-              <div>
+              <!-- <div>
                   <span>FOOD <%=statusOrder.name%></span>
-              </div>
+              </div> -->
       <div class="order-info">
         <div class="order-id">
         <span>ORDER ID <%=statusOrder.orderid%></span>
@@ -39,7 +39,7 @@
       </div>
       <article class="new-order">
         <form method="POST" action="/restaurant">
-          <%= JSON.stringify(statusOrder) %>
+          <!-- <%= JSON.stringify(statusOrder) %> -->
           <input type="hidden" name = 'order_id' value="<%= statusOrder.orderid %>">
           <button>COMPLETE</button>
         </form>
@@ -48,7 +48,7 @@
           <% } %>
         <% } %>
         <% if (completed === true) { %>
-          ITS ALL COMPLETED
+
         <% } %>
         <!-- <div class="order-info">
           <div class="order-id">
@@ -67,14 +67,5 @@
       </article>
     </container>
 
-    <footer>
-      <h4 class="info-title">CONTACT US</h4>
-      <div class="info">
-        <p>PHONE</p>
-        <p>ADDRESS</p>
-        <p>HOURS</p>
-        <p>EMAIL</p>
-      </div>
-    </footer>
 
   </body>
