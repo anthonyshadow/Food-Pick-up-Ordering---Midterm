@@ -41,7 +41,6 @@
       $('.checkout-form').on("submit", function(e) {
         e.preventDefault();
 
-        console.log("Submit Form")
           $.post('/checkout', {cartItem})
           .done(function(resp){
 

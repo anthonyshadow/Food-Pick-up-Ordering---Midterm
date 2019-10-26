@@ -1,27 +1,3 @@
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((data) => {
-//     for(user of data.users) {
-//       $("<div>").text(user.name).appendTo($(".food-type"));
-//     }
-//   });;
-// });
-
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/foods"
-//   }).done((data) => {
-//     for(food of data.foods) {
-//       $("<div>").text(food.name).appendTo($(".menu-info"));
-//       $("<div>").text(food.price).appendTo($(".menu-info"));
-//     }
-//   });
-// });
-
-
 
 $( document ).ready(function() {
   let $button = $('.add-to-cart');
@@ -56,9 +32,7 @@ $( document ).ready(function() {
 $( document ).ready(function() {
   $deleteButton = $(".btn.btn-danger.btn-sm")
   $deleteButton.on("click", function(){
-    console.log($(this))
     $(this).closest("tbody").remove()
-    // $(".cart-total-price").html(createCartTotal())
   })
 })
 

@@ -3,3 +3,22 @@
   height: 500px;
   text-align: center;
 }
+
+.register-button{
+  padding:0.35em 1.2em;
+  border:0.1em solid #026670;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300; color:#026670;
+  text-align:center;
+  transition: all 0.2s;
+
+}
+
+.register-button:hover {
+  color:white;
+  background-color:#026670;
+}
